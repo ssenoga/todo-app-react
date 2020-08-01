@@ -1,0 +1,46 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.app__todo {
+  background: #eeeeee;
+}
+.app__todo:hover {
+  opacity: 0.7;
+}
+.app__list:nth-child(odd) .app__todo {
+  background: transparent !important;
+}
+.app__btngrp button {
+  margin-right: 5px;
+}
+
+.app__modal {
+  height: 50vh;
+  width: 60vw;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+.app__modalDiv {
+  outline: 0;
+  flex: 1;
+  text-align: center;
+  height: 50vh;
+  background: white;
+}
+
+.app__ModalButtons {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+@media (max-width: 650px) {
+  .app__modal {
+    height: 50vh;
+    width: 90vw;
+  }
+}
