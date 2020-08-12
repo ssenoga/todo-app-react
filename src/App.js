@@ -9,7 +9,7 @@ export default function App() {
   const [todos, setTodos] = useState([]);
   const [input, setInput] = useState("");
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     db.collection("todo").add({
@@ -30,9 +30,9 @@ export default function App() {
   useEffect(() => {
     db.collection("todo")
       .orderBy("timestamp", "desc")
-      .onSnapshot(snapshot => {
+      .onSnapshot((snapshot) => {
         setTodos(
-          snapshot.docs.map(doc => ({
+          snapshot.docs.map((doc) => ({
             item: doc.data().item,
             timestamp: doc.data().timestamp,
             id: doc.id
@@ -49,7 +49,7 @@ export default function App() {
           <Input
             className="app__formInput"
             value={input}
-            onChange={e => setInput(e.target.value)}
+            onChange={(e) => setInput(e.target.value)}
           />
         </FormControl>
         <Button
@@ -58,13 +58,12 @@ export default function App() {
           color="primary"
           disabled={!input}
           type="submit"
-          onClick={handleSubmit}
-        >
+          onClick={handleSubmit}>
           Add Todo
         </Button>
       </form>
       {todos.map(({ item, id, timestamp }) => (
-        <Todo key={id} id={id} todo={item} date={timestamp.seconds} />
+        <Todo key={id} id={id} todo={item} date={timestamp?.seconds} />
       ))}
     </div>
   );
